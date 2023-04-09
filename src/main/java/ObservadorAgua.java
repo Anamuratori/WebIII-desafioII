@@ -1,18 +1,12 @@
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 public class ObservadorAgua implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         ObjetoObservado objetoObservado = (ObjetoObservado) o;
+        List<String> eventos = new ArrayList<>(Arrays.asList("Uma alga rara foi encontrada", "Um navio naufragou", "Nada a revelar"));
 
-        if (arg.equals("Uma alga rara foi encontrada")) {
-            System.out.println("Observador Agua: Uma alga rara foi encontrada");
-        } else if (arg.equals("Um navio naufragou")) {
-            System.out.println("Observador Agua: Um navio naufragou");
-        } else {
-            System.out.println("Observador Agua: Nada a declarar");
-        }
-
+        Random rand = new Random();
+        System.out.println("Observador Agua: " + eventos.get(rand.nextInt(eventos.size())));
     }
 }

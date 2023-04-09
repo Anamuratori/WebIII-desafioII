@@ -1,17 +1,12 @@
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 public class ObservadorTerra implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         ObjetoObservado objetoObservado = (ObjetoObservado) o;
+        List<String> eventos = new ArrayList<>(Arrays.asList("Uma caverna foi descoberta", "Um tunel foi aberto", "Nada a revelar"));
 
-        if (arg.equals("Uma caverna foi descoberta")) {
-            System.out.println("Observador Terra: Uma caverna foi descoberta");
-        } else if (arg.equals("Um tunel foi aberto")) {
-            System.out.println("Observador Terra: Um tunel foi aberto");
-        } else {
-            System.out.println("Observador Terra: Nada a declarar");
-        }
+        Random rand = new Random();
+        System.out.println("Observador Terra: " + eventos.get(rand.nextInt(eventos.size())));
     }
 }

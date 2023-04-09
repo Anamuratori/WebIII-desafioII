@@ -1,18 +1,13 @@
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 public class ObservadorCeu implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         ObjetoObservado objetoObservado = (ObjetoObservado) o;
+        List<String> eventos = new ArrayList<>(Arrays.asList("Eclipse lunar começou", "Um cometa passou", "Nada a revelar"));
 
-        if (arg.equals("Eclipse lunar começou")) {
-            System.out.println("Observador Céu: Eclipse lunar começou");
-        } else if (arg.equals("Eclipse lunar terminou")) {
-            System.out.println("Observador Céu: Eclipse lunar terminou");
-        } else {
-            System.out.println("Observador Céu: Nada a declarar");
-        }
+
+        Random rand = new Random();
+        System.out.println("Observador Ceu: " + eventos.get(rand.nextInt(eventos.size())));
     }
 }
